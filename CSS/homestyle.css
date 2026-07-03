@@ -1,0 +1,347 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    overflow-x: hidden;
+}
+
+a {
+    color: white;
+    font-size: clamp(15px, 3vw, 19px);
+    word-break: break-word;
+}
+
+p, li {
+    color: white;
+}
+
+.wrapper {
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 8px 4%;
+}
+
+.logo-img {
+    height: clamp(45px, 8vw, 70px);
+    width: clamp(45px, 8vw, 70px);
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.navigation {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex: 1;
+    min-height: auto;
+}
+
+.navigation nav {
+    display: flex;
+    gap: clamp(16px, 4vw, 32px);
+    font-size: clamp(20px, 5vw, 50px);
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+img {
+    border-radius: 15px;
+    max-width: 100%;
+    height: auto;
+}
+
+.socials {
+    border-radius: 50%;
+    height: clamp(36px, 8vw, 50px);
+    width: clamp(36px, 8vw, 50px);
+    margin: 5px;
+}
+
+/* ===== Hero section ===== */
+.hero-section {
+    min-height: 60vh;
+    width: 100%;
+    text-align: center;
+    color: aliceblue;
+    padding: 4vh 4% 2vh;
+}
+
+.hero-greeting {
+    font-size: clamp(18px, 4vw, 28px);
+    margin: 0 0 8px;
+}
+
+.hero-name {
+    font-size: clamp(28px, 8vw, 50px);
+    margin: 0;
+    line-height: 1.2;
+}
+
+.hero-role {
+    font-size: clamp(16px, 3.5vw, 20px);
+}
+
+.hero-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    gap: 24px;
+    margin-top: 24px;
+}
+
+.profile-pic-wrap {
+    height: clamp(180px, 40vw, 300px);
+    width: clamp(180px, 40vw, 300px);
+    margin: 0 auto;
+    flex-shrink: 0;
+}
+
+.profile-pic-wrap img {
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.intro-text,
+.social-block {
+    text-align: left;
+    font-size: clamp(16px, 2.2vw, 20px);
+    font-style: oblique;
+    width: 100%;
+    max-width: 320px;
+    padding: 10px;
+    margin: 0 auto;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cv-btn {
+    height: 44px;
+    width: 140px;
+    margin-top: 10px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+/* ===== Content rows ===== */
+.view {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+}
+
+.longblock,
+.shortblock {
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+    width: 100%;
+    min-height: 180px;
+    height: auto;
+    margin: 3% auto;
+    padding: 5%;
+    text-align: left;
+    background: transparent;
+    border: 2px solid silver;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 10px black;
+    font-size: clamp(15px, 2.2vw, 19px);
+    color: white;
+    overflow-wrap: break-word;
+}
+
+.shortblock.cert-photo-block {
+    padding: 4%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.shortblock.cert-photo-block img {
+    width: 100%;
+    height: auto;
+}
+
+/* ===== Licenses & Certifications (collapsible) ===== */
+.cert-view {
+    display: block;
+}
+
+.cert-collapsible {
+    width: 100%;
+    margin: 3% auto;
+    background: transparent;
+    border: 2px solid silver;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 10px black;
+    overflow: hidden;
+}
+
+.cert-summary {
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5%;
+    color: white;
+    user-select: none;
+}
+
+.cert-summary::-webkit-details-marker {
+    display: none;
+}
+
+.cert-summary h2 {
+    margin: 0;
+}
+
+.cert-summary::after {
+    content: '+';
+    font-size: clamp(20px, 4vw, 28px);
+    line-height: 1;
+    flex-shrink: 0;
+    margin-left: 12px;
+    transition: transform 0.25s ease;
+}
+
+.cert-collapsible[open] .cert-summary::after {
+    content: '+';
+    transform: rotate(45deg);
+}
+
+.cert-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    padding: 0 5% 5%;
+    animation: appear 0.3s ease;
+}
+
+.cert-content .longblock,
+.cert-content .shortblock {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+    backdrop-filter: none;
+    background: transparent;
+    animation: none;
+    min-height: unset;
+}
+
+.cert-content .shortblock.cert-photo-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (min-width: 768px) {
+    .cert-content .longblock {
+        width: 60%;
+    }
+
+    .cert-content .shortblock {
+        width: 35%;
+    }
+}
+
+footer, .site-footer {
+    text-align: center;
+    min-height: 10vh;
+    backdrop-filter: blur(10px);
+    padding: 12px 4%;
+    font-size: clamp(13px, 2vw, 16px);
+}
+
+.marquee-wrap {
+    color: white;
+    font-size: clamp(14px, 2.5vw, 18px);
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 8px 0;
+}
+
+/* ===== Tablet and up ===== */
+@media (min-width: 768px) {
+    .hero-content {
+        flex-wrap: nowrap;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .intro-text,
+    .social-block {
+        width: 30%;
+        max-width: none;
+    }
+
+    .view {
+        text-align: left;
+    }
+
+    .longblock {
+        width: 50%;
+    }
+
+    .shortblock {
+        width: 30%;
+    }
+}
+
+/* ===== Desktop ===== */
+@media (min-width: 1200px) {
+    .longblock,
+    .shortblock {
+        font-size: larger;
+    }
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        scale: 0.5;
+    }
+
+    to {
+        opacity: 1;
+        scale: 1;
+    }
+}
+
+@keyframes loading {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.animation {
+    animation: loading 1s linear;
+}
