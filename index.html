@@ -117,33 +117,37 @@
         </div>
 
         <div class="view cert-view" id="certificate">
-            <details class="cert-collapsible">
-                <summary class="cert-summary">
+            <div class="cert-collapsible">
+                <button type="button" class="cert-summary" aria-expanded="false" aria-controls="cert-body">
                     <h2>Licenses & Certifications</h2>
-                </summary>
-                <div class="cert-content">
-                    <div class="longblock">
-                        <p><b>Introduction to Critical Infrastructure Protection </b><br>Completed OPSWAT's ICIP program covering cybersecurity fundamentals and history of cybersecurity.</p>
-                        <p>OPSWAT Academy</p>
-                        <p>Issued Jun 2026 · Expires May 2027</p>
-                        <p>Credential ID: <a href="https://learn.opswatacademy.com/certificate/wX96-pojyg" target="_blank">wX96-pojyg</a></p>
-                    </div>
-                    <div class="shortblock cert-photo-block">
-                        <img src="Images/Photos/Certificate_of_introduction_to_cip.png" alt="Certificate of Introduction to Critical Infrastructure Protection">
+                </button>
+                <div class="cert-body" id="cert-body">
+                    <div class="cert-body-inner">
+                        <div class="cert-content">
+                            <div class="longblock">
+                                <p><b>Introduction to Critical Infrastructure Protection </b><br>Completed OPSWAT's ICIP program covering cybersecurity fundamentals and history of cybersecurity.</p>
+                                <p>OPSWAT Academy</p>
+                                <p>Issued Jun 2026 · Expires May 2027</p>
+                                <p>Credential ID: <a href="https://learn.opswatacademy.com/certificate/wX96-pojyg" target="_blank">wX96-pojyg</a></p>
+                            </div>
+                            <div class="shortblock cert-photo-block">
+                                <img src="Images/Photos/Certificate_of_introduction_to_cip.png" alt="Certificate of Introduction to Critical Infrastructure Protection">
+                            </div>
+                        </div>
+                        <div class="cert-content">
+                            <div class="longblock">
+                                <p><b>AI Skills Fest 2026</b><br>Complete all content within the selected AI Skills Fest curated playlist</p>
+                                <p>Microsoft</p>
+                                <p>Issued Jun 2026</p>
+                                <p><a href="https://www.credly.com/badges/7bfa9e66-1da5-4831-aa4c-c50fba032a2b/public_url" target="_blank">View Credential</a></p>
+                            </div>
+                            <div class="shortblock cert-photo-block">
+                                <img src="Images/Photos/ai-skills-fest-2026.png" alt="AI Skills Fest-2026">
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="cert-content">
-                    <div class="longblock">
-                        <p><b>AI Skills Fest 2026</b><br>Complete all content within the selected AI Skills Fest curated playlist</p>
-                        <p>Microsoft</p>
-                        <p>Issued Jun 2026</p>
-                        <p><a href="https://www.credly.com/badges/7bfa9e66-1da5-4831-aa4c-c50fba032a2b/public_url" target="_blank">View Credential</a></p>
-                    </div>
-                    <div class="shortblock cert-photo-block">
-                        <img src="Images/Photos/ai-skills-fest-2026.png" alt="AI Skills Fest-2026">
-                    </div>
-                </div>
-            </details>
+            </div>
         </div>
 
         <div class="view">
@@ -188,6 +192,17 @@
         <p>Copyright (c) 2026 MD. RAFSAN JANEE</p>
         <p>Developed by MD. RAFSAN JANEE</p>
     </footer>
+
+    <script>
+        document.querySelectorAll('.cert-collapsible').forEach((wrap) => {
+            const btn = wrap.querySelector('.cert-summary');
+            const body = wrap.querySelector('.cert-body');
+            btn.addEventListener('click', () => {
+                const isOpen = body.classList.toggle('open');
+                btn.setAttribute('aria-expanded', String(isOpen));
+            });
+        });
+    </script>
 </body>
 
 </html>

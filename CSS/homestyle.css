@@ -70,7 +70,6 @@ img {
     margin: 5px;
 }
 
-/* ===== Hero section ===== */
 .hero-section {
     min-height: 60vh;
     width: 100%;
@@ -144,7 +143,6 @@ img {
     font-weight: 600;
 }
 
-/* ===== Content rows ===== */
 .view {
     display: flex;
     flex-wrap: wrap;
@@ -184,7 +182,6 @@ img {
     height: auto;
 }
 
-/* ===== Licenses & Certifications (collapsible) ===== */
 .cert-view {
     display: block;
 }
@@ -200,18 +197,16 @@ img {
 }
 
 .cert-summary {
+    all: unset;
+    box-sizing: border-box;
     cursor: pointer;
-    list-style: none;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 5%;
+    width: 100%;
     color: white;
     user-select: none;
-}
-
-.cert-summary::-webkit-details-marker {
-    display: none;
 }
 
 .cert-summary h2 {
@@ -224,12 +219,28 @@ img {
     line-height: 1;
     flex-shrink: 0;
     margin-left: 12px;
-    transition: transform 0.25s ease;
+    transition: transform 0.3s ease;
 }
 
-.cert-collapsible[open] .cert-summary::after {
-    content: '+';
+.cert-summary[aria-expanded="true"]::after {
     transform: rotate(45deg);
+}
+
+/* Grid-rows trick: animates 0fr -> 1fr instead of relying on height:auto,
+   which is what keeps this smooth and cheap on mobile GPUs. */
+.cert-body {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cert-body.open {
+    grid-template-rows: 1fr;
+}
+
+.cert-body-inner {
+    overflow: hidden;
+    min-height: 0;
 }
 
 .cert-content {
@@ -237,7 +248,10 @@ img {
     flex-wrap: wrap;
     gap: 24px;
     padding: 0 5% 5%;
-    animation: appear 0.3s ease;
+}
+
+.cert-body-inner .cert-content:first-child {
+    padding-top: 5%;
 }
 
 .cert-content .longblock,
@@ -285,7 +299,6 @@ footer, .site-footer {
     padding: 8px 0;
 }
 
-/* ===== Tablet and up ===== */
 @media (min-width: 768px) {
     .hero-content {
         flex-wrap: nowrap;
@@ -312,7 +325,6 @@ footer, .site-footer {
     }
 }
 
-/* ===== Desktop ===== */
 @media (min-width: 1200px) {
     .longblock,
     .shortblock {
