@@ -48,13 +48,6 @@ I have a strong background in Science, and I enjoy working on tech-related proje
 
 ---
 
-## 📸 Preview
-
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/fbe52d2e-138a-4e47-b369-ce3f9dd721e7" />
-
-
----
-
 ## 📈 Future Improvements
 
 * Improve animations ✨
