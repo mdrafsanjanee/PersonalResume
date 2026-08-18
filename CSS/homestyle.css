@@ -226,8 +226,6 @@ img {
     transform: rotate(45deg);
 }
 
-/* Grid-rows trick: animates 0fr -> 1fr instead of relying on height:auto,
-   which is what keeps this smooth and cheap on mobile GPUs. */
 .cert-body {
     display: grid;
     grid-template-rows: 0fr;
